@@ -32,7 +32,6 @@ class Item(MethodView):
         db.session.commit()
         return {"message": "Item deleted"}, 200
 
-    @jwt_required()
     @blp.arguments(ItemUpdateSchema)
     @blp.response(200, ItemSchema)
     def put(self, item_data, item_id):
